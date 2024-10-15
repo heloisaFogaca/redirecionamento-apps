@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecionamento de Aplicativos</title>
+  <script>
+    function getOS() {
+      var userAgent = window.navigator.userAgent;
+      var platform = window.navigator.platform;
+      var os = null;
+
+      if (platform.indexOf('Win') !== -1 || platform.indexOf('Mac') !== -1 || platform.indexOf('Linux') !== -1) {
+        alert('Por favor, abra esta página em um dispositivo móvel.');
+      } else if (/Android/.test(userAgent)) {
+        redirecionarAndroid();
+      } else if (/iPhone|iPad|iPod/.test(userAgent)) {
+        redirecionarIOS();
+      } else {
+        document.write('Sistema Operacional não detectado.');
+      }
+    }
+
+    function redirecionarAndroid() {
+      var app = prompt("Escolha o aplicativo:\n1. Volvo\n2. PlugShare\n3. Eletro Graal\n4. Zletric");
+
+      switch (app) {
+        case '1':
+          window.location.href = 'https://play.google.com/store/apps/details?id=br.com.mycharge.volvo&pcampaignid=web_share';
+          break;
+        case '2':
+          window.location.href = 'https://play.google.com/store/apps/details?id=com.xatori.Plugshare&pcampaignid=web_share';
+          break;
+        case '3':
+          window.location.href = 'https://play.google.com/store/apps/details?id=com.eletrograal.app&pcampaignid=web_share';
+          break;
+        case '4':
+          window.location.href = 'https://play.google.com/store/apps/details?id=com.zletric.app&pcampaignid=web_share';
+          break;
+        default:
+          alert('Opção inválida.');
+      }
+    }
+
+    function redirecionarIOS() {
+      var app = prompt("Escolha o aplicativo:\n1. Volvo\n2. PlugShare\n3. Eletro Graal\n4. Zletric");
+
+      switch (app) {
+        case '1':
+          window.location.href = 'https://apps.apple.com/br/app/volvo-car-eletropostos/id6446260923';
+          break;
+        case '2':
+          window.location.href = 'https://apps.apple.com/br/app/plugshare/id421788217';
+          break;
+        case '3':
+          window.location.href = 'https://apps.apple.com/us/app/eletrograal/id6480517362';
+          break;
+        case '4':
+          window.location.href = 'https://apps.apple.com/br/app/zletric/id1481080845';
+          break;
+        default:
+          alert('Opção inválida.');
+      }
+    }
+
+    window.onload = getOS;
+  </script>
+</head>
+<body>
+  <h1>Redirecionando para o aplicativo...</h1>
+</body>
+</html>
